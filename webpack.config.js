@@ -7,7 +7,7 @@ const copyWebpackPlugin = require('copy-webpack-plugin');
 
 
 
-const LIB_NAME = name;
+const LIB_NAME = name.split('/')[1];
 const ROOT = process.cwd();
 const DESTINATION = path.resolve(ROOT, 'dist');
 

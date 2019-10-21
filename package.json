@@ -1,9 +1,9 @@
 {
-  "name": "JS-library-starter-kit",
+  "name": "JS-lib-starter-kit",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
-  "types": "@types/index.d.ts",
+  "main": "dist/JS-lib-starter-kit.js",
+  "types": "@types/JS-lib-starter-kit.d.ts",
   "sideEffects": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,7 +12,9 @@
     "prettier:base": "prettier --parser typescript --single-quote",
     "prettier:check": "npm run prettier:base -- --list-different \"src/**/*.{ts,tsx}\"",
     "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
-    "package": "npm run build && npm pack"
+    "package": "npm run build && npm pack",
+    "publish:patch": "npm version patch && npm publish --force",
+    "publish:minor": "npm version minor && npm publish --force"
   },
   "keywords": [
     "TS",

@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const { dependencies, peerDependencies, name } = require('./package.json');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const copyWebpackPlugin = require('copy-webpack-plugin');
@@ -14,7 +13,7 @@ const DESTINATION = path.resolve(ROOT, 'dist');
 
 
 
-/** webpack resolve */
+/* RESOLVING HANDLING */
 const RESOLVE = {
   modules: [
     path.resolve(ROOT, 'node_modules'),
@@ -85,7 +84,7 @@ module.exports = (env, argv) => {
           fs: 'empty',
         },
         entry: {
-          [name]: ROOT + '/src/index.ts',
+          [name]: ROOT + `/src/${name}.ts`,
         },
         output: OUTPUT,
         context: ROOT,

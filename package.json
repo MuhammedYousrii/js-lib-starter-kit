@@ -1,0 +1,37 @@
+{
+  "name": "JS-library-starter-kit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "@types/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --mode development --config webpack.config.js",
+    "build": "webpack --mode=production --config webpack.config.js",
+    "prettier:base": "prettier --parser typescript --single-quote",
+    "prettier:check": "npm run prettier:base -- --list-different \"src/**/*.{ts,tsx}\"",
+    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
+    "package": "npm run build && npm pack"
+  },
+  "keywords": [
+    "TS",
+    "webpack"
+  ],
+  "author": "MuhammedYousrii<muhammed.yuosry@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/lodash": "^4.14.144",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.4",
+    "prettier": "^1.18.2",
+    "ts-loader": "^6.2.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}

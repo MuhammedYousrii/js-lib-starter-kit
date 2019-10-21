@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+
+        "alwaysStrict": true,
+        "rootDir": "src/",
+        "outDir": "dist/",
+        "removeComments": true,
+        "noImplicitAny": true,
+        
+        /* MODULE HANDLING */
+        "module": "esnext",
+        "moduleResolution": "node",
+        "target": "es5",
+
+
+        /* DECORATOR HANDLING */
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        // "emitDeclarationOnly": true,
+
+        /* TYPINGS FILES HANDLING */
+        "declaration": true,
+        "declarationDir": "@types/"
+    },
+
+    "compileOnSave": false,
+    "include": ["./src/**/*"],
+    "exclude": ["./node_modules", "./dist"]
+}

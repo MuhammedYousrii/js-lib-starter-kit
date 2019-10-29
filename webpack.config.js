@@ -2,6 +2,7 @@ const path = require('path');
 const { dependencies, peerDependencies, name } = require('./package.json');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const copyWebpackPlugin = require('copy-webpack-plugin');
+const htmlWebpackPlugin = require('html-webpack-plugin');
 
 
 
@@ -28,6 +29,8 @@ const PLUGINS = [
   new CleanWebpackPlugin({
       verbose: true,
   }),
+
+  // new htmlWebpackPlugin()
 
 //   new copyWebpackPlugin([{
 //     from: "package.json",
@@ -71,12 +74,12 @@ const MODULE = {
 
 };
 
-const EXTERNALS = Object.keys(dependencies)
 
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === "production";
-
+  const EXTERNALS = isProduction ? Object.keys(dependencies): []
+  
   return [
     {
         // watch: true,
@@ -86,14 +89,25 @@ module.exports = (env, argv) => {
         entry: {
           [name]: ROOT + `/src/${name}.ts`,
         },
+
+        optimization: {
+          runtimeChunk: 'single'
+        },
+
         output: OUTPUT,
         context: ROOT,
         resolve: RESOLVE,
         module: MODULE,
         mode: argv.mode,
         plugins: PLUGINS,
-        devtool: isProduction ? 'none': 'source-map',
-        devServer: {},
+        devtool: isProduction ? 'none': 'inline-source-map',
+        devServer: {
+          compress: true,
+          port: 9000,
+          contentBase: path.join(__dirname, 'app'),
+          index: 'index.html',
+          open: 'chrome',
+        },
         externals: EXTERNALS
       }
   ] 

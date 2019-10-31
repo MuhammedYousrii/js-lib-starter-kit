@@ -91,7 +91,7 @@ module.exports = (env, argv) => {
         },
 
         optimization: {
-          runtimeChunk: 'single'
+          runtimeChunk: isProduction ? false: 'single'
         },
 
         output: OUTPUT,

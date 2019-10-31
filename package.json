@@ -1,6 +1,6 @@
 {
   "name": "js-lib-starter-kit",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
   "main": "dist/js-lib-starter-kit.min.js",
   "types": "@types/js-lib-starter-kit.d.ts",
